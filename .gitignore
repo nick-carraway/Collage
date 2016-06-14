@@ -1,0 +1,6 @@
+collage.log
+covert.py
+
+# minimize compiled python directories
+__pycache__/
+*/__pycache__/

@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/1.9/ref/settings/
 """
 
 import os
+from covert import *
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -18,9 +19,6 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.9/howto/deployment/checklist/
-
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'q+41urnwyc-n8&^15ap)@s8c!9tovr^*g3ec!e33ks^ohw=xn9'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -79,11 +77,11 @@ WSGI_APPLICATION = 'collage.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'mydatabase',
-	'USER': 'postgres',
-	'PASSWORD': 'K@!zen0011',
+        'NAME': 'collagedb',
+	'USER': 'collage',
+	'PASSWORD': COVERT_DATABASE_PASSWORD,
 	'HOST': '127.0.0.1',
-	'PORT': '8000',
+	'PORT': '5432',
     }
 }
 
@@ -112,7 +110,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'PST'
+TIME_ZONE = 'America/Los_Angeles'
 
 USE_I18N = True
 
@@ -125,3 +123,5 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
 
 STATIC_URL = '/static/'
+
+STATIC_ROOT = os.path.join("/var/www/static/")
